@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Bookings.new
+    @booking = Booking.new
   end
 
   def create
@@ -15,6 +15,6 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:data_from, :date_to)
+    params.require(:booking).permit(:date_from, :date_to)
   end
 end
