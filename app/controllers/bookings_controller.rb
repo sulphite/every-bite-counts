@@ -16,7 +16,6 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    redirect_to donut_path(@donut)
   end
 
   def edit
