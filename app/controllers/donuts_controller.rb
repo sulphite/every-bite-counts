@@ -1,5 +1,5 @@
 class DonutsController < ApplicationController
-  before_action :set_donut
+  before_action :set_donut, only: [:show, :destroy]
 
   def index
     @donuts = Donut.all
