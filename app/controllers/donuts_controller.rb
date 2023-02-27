@@ -1,4 +1,4 @@
-class DonutController < ApplicationController
+class DonutsController < ApplicationController
   before_action :set_donut
 
   def index
