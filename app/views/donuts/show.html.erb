@@ -1,0 +1,31 @@
+<div class="container">
+  <h2><%= @donut.title %></h2>
+
+  <div class="donut-card">
+
+    <div class="donut-image">
+
+    </div>
+    <div class="location-cont">
+      <div class="location-img">
+        <figure>
+          <%# <img src="" alt="" class="location-img"> %>
+            <figcaption><%= @donut.location %></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="donut-info-card">
+      <%# <%= @donut.wholeness %>
+      <div class="user-info">
+        <%= @donut.user.username %>
+      </div>
+      <ul class="donut-info">
+        <li><%= @donut.flavour %></li>
+        <li><%= @donut.description %></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<%# flavour location title description wholeness %>
