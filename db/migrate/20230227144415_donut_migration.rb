@@ -5,5 +5,6 @@ class DonutMigration < ActiveRecord::Migration[7.0]
     add_column :donuts, :flavour, :string
     add_column :donuts, :location, :string
     add_column :donuts, :wholeness, :integer, default: 100
+    
   end
 end
