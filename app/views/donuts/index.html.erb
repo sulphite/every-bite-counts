@@ -1,5 +1,12 @@
 
 <div class="container grid">
-   test
+  <% @donuts.each do |donut| %>
+   <%= link_to donut_path(donut.id) %>
+   <div class="card">
+    <%= image_tag "", class: "" %>
+    <div class="card-body">
+      <%= donut.title %>
+    </div>
+   </div>
+  <% end %>
 </div>
-
