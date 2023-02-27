@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit]
+  before_action :set_booking, only: %i[show edit]
   def show
-    # @booking = Booking.find(params[:id])
   end
 
   def new
@@ -10,16 +9,17 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @donut = Donut.find(params[:donut_id])
     @booking.user = @current_user
-    # get id off the donut from the params
-    # get instance of dognut
-    # @booking.donut =
-    @booking.save
-    redirect_to booking_path(@booking)
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render :new, status: :unprocessable_entity
+    end
+    redirect_to donut_path(@donut)
   end
 
   def edit
-    # @booking = Booking.find(params[:id])
   end
 
   private
