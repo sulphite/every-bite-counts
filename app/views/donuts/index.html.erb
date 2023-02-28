@@ -1,4 +1,15 @@
-
-<div class="container grid">
-   test
+<div class="container donut-grid mt-4">
+  <% @donuts.shuffle.each do |donut| %>
+   <div class="card rounded border-0 pt-1">
+    <%= link_to donut_path(donut.id), class: "text-decoration-none d-flex flex-column align-items-center justify-content-center w-100" do %>
+        <div class="donut-image"></div> <%# replace with cloudinary image later %>
+        <div class="card-body flex-grow-1 donut-info w-100">
+      <%# <%= image_tag "https://www.errenskitchen.com/wp-content/uploads/2020/01/Baked-Vanilla-Donuts-1-4.jpg", class: "card-image img-fluid rounded-top" %>
+          <span class="fw-bold"><%= donut.title %></span>
+          <span class="text-muted"><%= donut.location %></span>
+          <span class="text-muted"><%= donut.user.username %></span>
+        </div>
+    <% end %>
+    </div>
+  <% end %>
 </div>
