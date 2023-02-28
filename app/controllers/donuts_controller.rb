@@ -1,12 +1,11 @@
 class DonutsController < ApplicationController
-  before_action :set_donut, only: [:show, :destroy]
+  before_action :set_donut, only: [:show, :edit, :update, :destroy]
 
   def index
     @donuts = Donut.all
   end
 
   def show
-
   end
 
   def new
@@ -23,8 +22,15 @@ class DonutsController < ApplicationController
     end
   end
 
-  def destroy
+  def edit
+  end
 
+  def update
+    @donut.update(donut_params)
+    redirect_to donut_path(@donut)
+  end
+
+  def destroy
   end
 
   private
