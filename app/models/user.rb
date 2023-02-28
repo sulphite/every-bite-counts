@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :donuts
   has_many :bookings
 
+  has_one_attached :photo
+
   validates :username, presence: true, uniqueness: true, length: { minimum: 2 }
 end
