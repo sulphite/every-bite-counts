@@ -10,7 +10,7 @@
     <div class="p-4 col-6 d-flex flex-column align-items-center">
       <div class="w-100 py-4 text-center">
         <% if @donut.photo.key %>
-          <%= cl_image_tag donut.photo.key, crop: :fill, class: "donut-image w-75 shadow-sm" %>
+          <%= cl_image_tag @donut.photo.key, crop: :fill, class: "donut-image w-75 shadow-sm" %>
         <% else %>
           <img src="https://s7d1.scene7.com/is/image/mcdonalds/mcdonalds-Sugar-Donut-3:1-3-product-tile-desktop?wid=829&hei=515&dpr=off" alt="Donut image" style="border-radius:5%" class="w-75 shadow-sm">
         <% end %>
