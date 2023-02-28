@@ -2,6 +2,10 @@
   <% if @bookings.empty? %>
     <p>You have no bookings!</p>
   <% else %>
-    <%= @bookings %>
+    <% @bookings.each do |booking| %>
+      <div class="card">
+        <%# TODO %>
+      </div>
+    <% end %>
   <% end %>
 </div>
