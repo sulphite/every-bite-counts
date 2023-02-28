@@ -1,12 +1,12 @@
 class DonutsController < ApplicationController
-  before_action :set_donut, only: [:show, :destroy]
+  before_action :set_donut, only: [:show, :edit, :update, :destroy]
 
   def index
     @donuts = Donut.all
   end
 
   def show
-
+    @booking = Booking.new
   end
 
   def new
@@ -17,14 +17,23 @@ class DonutsController < ApplicationController
     @donut = Donut.new(donut_params)
     @donut.user = current_user
     if @donut.save
-      redirect_to root_path
+      redirect_to donut_path(@donut)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def destroy
+  def edit
+  end
 
+  def update
+    @donut.update(donut_params)
+    redirect_to donut_path(@donut)
+  end
+
+  def destroy
+    @donut.destroy
+    redirect_to donuts_path
   end
 
   private
@@ -34,6 +43,6 @@ class DonutsController < ApplicationController
   end
 
   def donut_params
-    params.require(:donut).permit(:title, :description, :flavour, :location, :wholeness, :photo)
+    params.require(:donut).permit(:title, :description, :flavour, :location, :wholeness, :price, :photo)
   end
 end
