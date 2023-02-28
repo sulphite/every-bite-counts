@@ -17,7 +17,7 @@ class DonutsController < ApplicationController
     @donut = Donut.new(donut_params)
     @donut.user = current_user
     if @donut.save
-      redirect_to root_path
+      redirect_to donut_path(@donut)
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,12 +34,6 @@ class DonutsController < ApplicationController
   def destroy
     @donut.destroy
     redirect_to donuts_path
-    # NEED DELETE LINK IN SHOW PAGE. ADD LINES BELOW
-    ########
-    #<%= link_to "Delete", donut_path(@donut),
-    #data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    #end
-    ##########
   end
 
   private
@@ -49,6 +43,6 @@ class DonutsController < ApplicationController
   end
 
   def donut_params
-    params.require(:donut).permit(:title, :description, :flavour, :location, :wholeness, :photo)
+    params.require(:donut).permit(:title, :description, :flavour, :location, :wholeness, :price, :photo)
   end
 end
