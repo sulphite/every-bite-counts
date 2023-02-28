@@ -15,9 +15,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @donut = Donut.find(params[:donut_id])
-    @booking.user = @current_user
-    if @booking.save
-      redirect_to booking_path(@booking)
+    @booking.user = current_user
+    @booking.donut = @donut
+    # raise
+    if @booking.save!
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,6 +35,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:date_from, :date_to)
+    params.require(:booking).permit(:time_from, :time_to)
   end
 end
