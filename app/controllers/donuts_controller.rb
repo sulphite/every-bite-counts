@@ -39,6 +39,7 @@ class DonutsController < ApplicationController
     #data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     #end
     ##########
+  end
 
   private
 
