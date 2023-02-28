@@ -1,5 +1,9 @@
-.simple_form {
+.simple_form, .simple_form--container {
   max-width: 500px;
-  padding: 2em;
   margin: 0 auto;
+
+  .form-actions {
+    margin-bottom: 1em;
+  }
+
 }
