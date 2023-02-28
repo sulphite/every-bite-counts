@@ -1,13 +1,14 @@
+
 .donut-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 282px);
   gap: 1.5em;
+  justify-content: center;
 
   .donut-image {
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     border-radius: 50%;
-    background-image: url("https://www.errenskitchen.com/wp-content/uploads/2020/01/Baked-Vanilla-Donuts-1-4.jpg");
     background-size: cover;
     background-position: center;
   }
@@ -18,7 +19,27 @@
     grid-template-rows: 2fr 1fr 1fr;
   }
 
-  .card {
-    box-shadow: rgba(128, 79, 79, 0.1) 0 0 10px;
+  // .card {
+  //   background-color: transparent;
+  //   box-shadow: rgba(128, 79, 79, 0.1) 0 0 10px;
+  // }
+}
+
+@media (min-width: 768px) {
+  .donut-grid {
+  grid-template-columns: repeat(2, 282px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .donut-grid {
+  grid-template-columns: repeat(3, 282px);
+  }
+}
+
+
+@media (min-width: 1440px) {
+  .donut-grid {
+  grid-template-columns: repeat(4, 282px);
   }
 }
