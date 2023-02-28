@@ -31,7 +31,14 @@ class DonutsController < ApplicationController
   end
 
   def destroy
-  end
+    @donut.destroy
+    redirect_to donuts_path
+    # NEED DELETE LINK IN SHOW PAGE. ADD LINES BELOW
+    ########
+    #<%= link_to "Delete", donut_path(@donut),
+    #data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    #end
+    ##########
 
   private
 
