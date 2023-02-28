@@ -27,6 +27,7 @@ number_of_donuts.times do
     flavour: "#{Faker::Food.spice}",
     location: "#{Faker::Address.city}",
     wholeness: rand(1..100),
+    price: rand(1..5),
     user_id: user1.id)
 end
 puts user1.valid?
@@ -38,6 +39,7 @@ number_of_donuts.times do
     flavour: "#{Faker::Food.spice}",
     location: "#{Faker::Address.city}",
     wholeness: rand(1..100),
+    price: rand(1..5),
     user_id: user2.id)
 end
 puts user2.valid?
@@ -49,6 +51,7 @@ number_of_donuts.times do
     flavour: "#{Faker::Food.spice}",
     location: "#{Faker::Address.city}",
     wholeness: rand(1..100),
+    price: rand(1..5),
     user_id: user3.id)
 end
 puts user3.valid?
@@ -60,6 +63,7 @@ number_of_donuts.times do
     flavour: "#{Faker::Food.spice}",
     location: "#{Faker::Address.city}",
     wholeness: rand(1..100),
+    price: rand(1..5),
     user_id: user4.id)
 end
 puts user4.valid?
