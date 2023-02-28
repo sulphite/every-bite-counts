@@ -15,8 +15,9 @@ class DonutsController < ApplicationController
 
   def create
     @donut = Donut.new(donut_params)
+    @donut.user = current_user
     if @donut.save
-      redirect_to donut_path(@donut)
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,15 +30,14 @@ class DonutsController < ApplicationController
   def destroy
 
   end
-end
 
+  private
 
-private
+  def set_donut
+    @donut = Donut.find(params[:id])
+  end
 
-def set_donut
-  @donut = Donut.find(params[:id])
-end
-
-def donut_params
-  require(:donut).permit(:title, :description, :flavour, :location, :wholeness)
+  def donut_params
+    params.require(:donut).permit(:title, :description, :flavour, :location, :wholeness, :photo)
+  end
 end
