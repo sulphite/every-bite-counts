@@ -10,9 +10,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @donut = Donut.find(params[:donut_id])
-    @booking.user = @current_user
-    if @booking.save
-      redirect_to booking_path(@booking)
+    @booking.user = current_user
+    @booking.donut = @donut
+    # raise
+    if @booking.save!
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end

@@ -1,28 +1,57 @@
-<div class="container">
-  <h2><%= @donut.title %></h2>
-
-  <div class="donut-card">
-
-    <div class="donut-image">
-
+<div class="container ">
+  <div class="title-container container bg-white shadow-sm my-3">
+    <h2 class=""><%= @donut.title %></h2>
+    <div class="p-2">
+      <%= link_to 'Back to Results', donuts_path, class: "btn btn-secondary" %>
     </div>
-    <div class="location-cont">
-      <div class="location-img">
-        <figure>
-          <%# <img src="" alt="" class="location-img"> %>
-            <figcaption><%= @donut.location %></figcaption>
-        </figure>
+  </div>
+
+  <div class="donut-card d-flex shadow-sm flex-row bg-white">
+    <div class="p-4 col-6 d-flex flex-column align-items-center">
+      <div class="w-100 py-4 text-center">
+          <img src="https://s7d1.scene7.com/is/image/mcdonalds/mcdonalds-Sugar-Donut-3:1-3-product-tile-desktop?wid=829&hei=515&dpr=off" alt="Donut image" style="border-radius:5%" class="w-75 shadow-sm">
+      </div>
+      <div class="location-cont text-center shadow-sm w-75 p-2">
+        <div class="location-info w-85">
+          <div class="rounded w-80 row d-flex text-center">
+            <h4>Location</h4>
+              <img src="https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=51.50022&lon=-0.1265&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*" style="border-radius:10%" alt="Donut Location" class="w-100 p-3">
+              <p class="my-2"><%= @donut.location %></p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="donut-info-card">
-      <%# <%= @donut.wholeness %>
-      <div class="user-info">
-        <%= @donut.user.username %>
+    <div class="donut-info-card d-flex flex-column p-4 align-items-center col-6">
+      <div class="user-info text-center shadow-sm mt-5 w-50 bg-light col-8">
+        <h3><%= @donut.user.username %></h3>
       </div>
-      <ul class="donut-info">
-        <li><%= @donut.flavour %></li>
-        <li><%= @donut.description %></li>
-      </ul>
+      <div style="border-radius:10%; width:60%; background-color:BDCDD6;" class="donut-info p-2 col-4 text-center">
+        <div class="shadow-sm my-5 bg-light p-3">
+          <p><%= @donut.flavour %></p>
+          <p class="py-2">Wholeness: <%= @donut.wholeness %> </p>
+          <%= @donut.description %>
+        </div>
+      </div>
+
+      <div class="text-center mb-3 p-3 bg-light" style="border-radius:10%;">
+        <% if current_user == @donut.user %>
+          <p><%= @donut.title %></p>
+          <%= link_to "EDIT", edit_donut_path, class: "btn btn-dark" %>
+
+          <%= link_to "Delete", donut_path(@donut),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-dark" %>
+        <% end %>
+      </div>
+
+      <% if user_signed_in?  %>
+        <div class="pt-5 form-control w-50 bg-light text-center" style="border-radius:10%;">
+          <h3>Create a Booking</h3>
+          <%= render 'bookings/form', booking: @booking, donut: @donut %>
+        </div>
+      <% else %>
+        <%= link_to 'Please Sign in to book', new_user_session_path, class: "btn btn-dark" %>
+      <% end %>
+
     </div>
   </div>
 
