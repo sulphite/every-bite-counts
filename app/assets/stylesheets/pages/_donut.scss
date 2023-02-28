@@ -1,0 +1,48 @@
+.mapbanner {
+  background-image: url("https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=51.50022&lon=-0.1265&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*");
+  background-attachment: fixed;
+  width: 100vw;
+  padding: 200px 0;
+}
+
+.show-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "image stats"
+    "title booking";
+    // "descrip descrip booking"
+  gap: 1em;
+
+}
+
+.show-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 5px solid $teal;
+}
+
+.show-title {
+  grid-area: title;
+}
+
+.show-info {
+  grid-area: descrip;
+}
+
+.show-booking {
+  grid-area: booking;
+}
+
+.show-photo {
+  grid-area: image;
+}
+
+.show-stats {
+  grid-area: stats;
+}
+.show-location {
+  grid-area: map;
+}
