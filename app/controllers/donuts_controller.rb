@@ -22,6 +22,10 @@ class DonutsController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
   def destroy
 
   end
