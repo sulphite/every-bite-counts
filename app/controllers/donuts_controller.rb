@@ -7,7 +7,7 @@ class DonutsController < ApplicationController
 
   def show
     @booking = Booking.new
-    @wholenessdata = [["uneaten", @donut.wholeness],["eaten", 100 - @donut.wholeness]]
+    @wholenessdata = [["uneaten", @donut.wholeness], ["eaten", 100 - @donut.wholeness]]
   end
 
   def new
