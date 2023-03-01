@@ -12,7 +12,10 @@
       <%# <%= image_tag "https://www.errenskitchen.com/wp-content/uploads/2020/01/Baked-Vanilla-Donuts-1-4.jpg", class: "card-image img-fluid rounded-top" %>
           <span><%= donut.title %></span>
           <span class="text-muted"><%= donut.location %></span>
-          <span class="text-muted"><%= donut.user.username %></span>
+          <div class="d-flex justify-content-between">
+            <span class="text-muted"><%= donut.user.username %></span>
+            <span class="fw-bold">£<%= '%.2f' % donut.price %></span>
+          </div>
         </div>
     <% end %>
     </div>
