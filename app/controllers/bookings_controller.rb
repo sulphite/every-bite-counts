@@ -17,11 +17,12 @@ class BookingsController < ApplicationController
     @donut = Donut.find(params[:donut_id])
     @booking.user = current_user
     @booking.donut = @donut
-    # raise
-    if @booking.save!
-      redirect_to bookings_path
-    else
-      render :new, status: :unprocessable_entity
+    if @booking.time_from.hour < @booking.time_to.hour
+      if @booking.save
+        redirect_to bookings_path
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
