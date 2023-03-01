@@ -17,8 +17,8 @@ class ReviewsController < ApplicationController
   end
 
   ### MUST ADD REVIEW TO USER,
-  ### THROUGH BOOKING CARD,
-  ### DISPLAY REVIEWS ON USER SHOW PAGE;lksdsdsf
+
+  
 
   private
 

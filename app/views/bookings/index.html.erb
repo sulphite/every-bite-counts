@@ -13,6 +13,7 @@
       <p>Name of donut: <%= booking.donut.title %></p>
       <p>Donut belongs to: <%= booking.donut.user.username %></p>
       <p><%= link_to "Write a review", new_booking_review_path(booking) %></p>
+      
         <%# TODO ADD REVIEW TO USER FROM BOOKING %>
       </div>
     <% end %>
