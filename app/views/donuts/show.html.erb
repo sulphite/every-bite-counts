@@ -35,15 +35,14 @@
       <%= pie_chart @wholenessdata, colors: ["#E8998D","rgba(0, 0, 0, 0.05)"], donut: true %>
     </div>
 
-      <div class="show-booking">
+      <div class="show-booking bg-light rounded d-flex flex-column">
       <% if user_signed_in?  %>
         <div class="form-control p-4 bg-light border-0">
           <h5>Book this donut</h5>
-
           <%= render 'bookings/form', booking: @booking, donut: @donut %>
         </div>
       <% else %>
-        <%= link_to 'Please Sign in to book', new_user_session_path, class: "btn btn-primary rounded-pill" %>
+        <%= link_to 'Please Sign in to book', new_user_session_path, class: "btn btn-primary rounded-pill align-self-center mx-auto my-auto" %>
       <% end %>
       </div>
 
