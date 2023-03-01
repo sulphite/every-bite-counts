@@ -8,8 +8,8 @@
         <%= @donut = booking.donut_id %>
         <p>Time From: <%= booking.time_from.hour %>:
                       <%= booking.time_from.min %></p>
-        <p>Time Till: <%= booking.time_from.hour %>:
-                      <%= booking.time_from.min %></p>
+        <p>Time Till: <%= booking.time_to.hour %>:
+                      <%= booking.time_to.min %></p>
         <p class="text-muted">Booking made by: <%= booking.user.username %></p>
         <p class="text-muted">Name of donut: <%= booking.donut.title %></p>
         <p class="text-muted">Donut belongs to: <%= booking.donut.user.username %></p>
