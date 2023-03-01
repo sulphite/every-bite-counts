@@ -1,10 +1,20 @@
-<div class="container">
+<div class="container booking-card">
   <% if @bookings.empty? %>
+    <p><%= current_user.username %></p>
     <p>You have no bookings!</p>
   <% else %>
     <% @bookings.each do |booking| %>
       <div class="card">
-        <%# TODO %>
+      <%= @donut = booking.donut_id %>
+      <p>Time From: <%= booking.time_from %></p>
+      <p>Time Till: <%= booking.time_to %></p>
+      <p>Booking made by: <%= booking.user.username %></p>
+      <p>Whos user id is: <%= booking.user_id %></p>
+      <p>Name of donut: <%= booking.donut.title %></p>
+      <p>Donut belongs to: <%= booking.donut.user.username %></p>
+      <p><%= link_to "Write a review", new_booking_review_path(booking) %></p>
+      
+        <%# TODO ADD REVIEW TO USER FROM BOOKING %>
       </div>
     <% end %>
   <% end %>
