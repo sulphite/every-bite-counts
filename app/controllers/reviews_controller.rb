@@ -8,13 +8,17 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.booking = @booking
-    @user = @booking.user_id
+    @user = current_user.id
     if @review.save
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
   end
+
+  ### MUST ADD REVIEW TO USER,
+  ### THROUGH BOOKING CARD,
+  ### DISPLAY REVIEWS ON USER SHOW PAGE;lksdsdsf
 
   private
 
@@ -23,6 +27,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    require(:review).permit(:rating, :content)
+    params.require(:review).permit(:rating, :content)
   end
 end
