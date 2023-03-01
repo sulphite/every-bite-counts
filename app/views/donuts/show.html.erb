@@ -33,6 +33,7 @@
         <div class="shadow-sm my-5 bg-light p-3">
           <p><%= @donut.flavour %></p>
           <p class="py-2">Wholeness: <%= @donut.wholeness %> </p>
+          <%= pie_chart @wholenessdata, colors: ["#E8998D","rgba(0, 0, 0, 0.05)"], donut: true %>
           <%= @donut.description %>
           <br>
           <p class="py-2">Price: £<%= @donut.price %></p>
