@@ -1,0 +1,5 @@
+
+<%= form_with url: donuts_path, method: :get, class: "", data: { controller: "search" } do |f| %>
+  <%= f.text_field :query, id: "search-input", placeholder: "Find a donut near you!", class: "form-control rounded-pill w-50 bg-white mb-3", data: { target: "search.input" } %>
+  <%= f.submit "let's get some donuts", class: "btn btn-primary rounded-pill", data: { action: "click->search#submit" } %>
+<% end %>

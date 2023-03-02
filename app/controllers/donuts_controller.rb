@@ -2,12 +2,36 @@ class DonutsController < ApplicationController
   before_action :set_donut, only: [:show, :edit, :update, :destroy]
 
   def index
-    @donuts = Donut.all
-  end
+    if params[:query].present?
+      sql_query = <<~SQL
+        donuts.title @@ :query
+        OR donuts.location @@ :query
+        OR donuts.flavour @@ :query
+      SQL
+      @donuts = Donut.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @donuts = Donut.all
+    end
+
+    @markers = @donuts.geocoded.map do |donut|
+      {
+        lat: donut.latitude,
+        lng: donut.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {donut: donut}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
+
+   end
 
   def show
     @booking = Booking.new
     @wholenessdata = [["uneaten", @donut.wholeness], ["eaten", 100 - @donut.wholeness]]
+
+    @markers = [{
+        lat: @donut.latitude,
+        lng: @donut.longitude
+      }]
   end
 
   def new
