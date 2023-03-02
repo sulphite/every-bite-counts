@@ -1,23 +1,28 @@
-<div class="container donut-grid mt-4">
-  <% @donuts.shuffle.each do |donut| %>
-   <div class="card rounded border-0 pt-4">
-    <%= link_to donut_path(donut.id), class: "text-decoration-none d-flex flex-column align-items-center justify-content-center w-100" do %>
-      <% if donut.photo.key %>
-        <%= cl_image_tag donut.photo.key, height: 250, width: 250, crop: :fill, class: "donut-image" %>
-      <% else %>
-      <%# placeholder image %>
-        <div class="donut-image" style="background-image: url(<%= image_path 'https://www.errenskitchen.com/wp-content/uploads/2020/01/Baked-Vanilla-Donuts-1-4.jpg' %>)"></div>
-      <% end %>
-        <div class="card-body flex-grow-1 donut-info w-100">
-      <%# <%= image_tag "https://www.errenskitchen.com/wp-content/uploads/2020/01/Baked-Vanilla-Donuts-1-4.jpg", class: "card-image img-fluid rounded-top" %>
-          <span><%= donut.title %></span>
-          <span class="text-muted"><%= donut.location %></span>
-          <div class="d-flex justify-content-between">
-            <span class="text-muted"><%= donut.user.username %></span>
-            <span class="fw-bold">£<%= '%.2f' % donut.price %></span>
+<div class="biggrid">
+  <div class="container donut-grid py-4 mt-0">
+    <% @donuts.shuffle.each do |donut| %>
+    <div class="card rounded border-0 pt-4">
+      <%= link_to donut_path(donut.id), class: "text-decoration-none d-flex flex-column align-items-center justify-content-center w-100" do %>
+        <% if donut.photo.key %>
+          <%= cl_image_tag donut.photo.key, height: 250, width: 250, crop: :fill, class: "donut-image" %>
+        <% else %>
+        <%# placeholder image %>
+          <div class="donut-image" style="background-image: url(<%= image_path 'https://www.errenskitchen.com/wp-content/uploads/2020/01/Baked-Vanilla-Donuts-1-4.jpg' %>)"></div>
+        <% end %>
+          <div class="card-body flex-grow-1 donut-info w-100">
+        <%# <%= image_tag "https://www.errenskitchen.com/wp-content/uploads/2020/01/Baked-Vanilla-Donuts-1-4.jpg", class: "card-image img-fluid rounded-top" %>
+            <span><%= donut.title %></span>
+            <span class="text-muted"><%= donut.location %></span>
+            <div class="d-flex justify-content-between">
+              <span class="text-muted"><%= donut.user.username %></span>
+              <span class="fw-bold">£<%= '%.2f' % donut.price %></span>
+            </div>
           </div>
-        </div>
+      <% end %>
+      </div>
     <% end %>
-    </div>
-  <% end %>
+  </div>
+  <div class="donut-map" data-controller="index-map"
+  data-index-map-markers-value="<%= @markers.to_json %>"
+  data-index-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
