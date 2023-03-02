@@ -14,6 +14,9 @@
         <p class="text-muted">Name of donut: <%= booking.donut.title %></p>
         <p class="text-muted">Donut belongs to: <%= booking.donut.user.username %></p>
         <p><%= link_to "Write a review", new_booking_review_path(booking) %></p>
+        <%= link_to "Cancel Booking", booking_path(booking),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "btn btn-danger rounded-pill mx-2" %>
 
         <%# TODO ADD REVIEW TO USER FROM BOOKING %>
       </div>
