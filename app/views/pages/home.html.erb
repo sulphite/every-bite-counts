@@ -1,6 +1,15 @@
 <div class="banner">
   <div class="container">
       <h1 class="fw-bold display-1">Welcome</h1>
-      <%= link_to "let's get some donuts", donuts_path, class: "btn btn-lg btn-primary rounded-pill" %>
+      <p>Start searching for donuts near you right this second</p>
+      <%= form_with url: donuts_path, method: :get, class: "" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control rounded-pill bg-white w-50 mb-3",
+          placeholder: "what's your location?"
+        %>
+        <%= submit_tag "let's get some donuts", class: "btn btn-primary rounded-pill" %>
+      <% end %>
+      <%# <%= link_to "let's get some donuts", donuts_path, class: "btn btn-lg btn-primary rounded-pill" %>
   </div>
 </div>

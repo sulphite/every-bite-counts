@@ -2,7 +2,11 @@ class DonutsController < ApplicationController
   before_action :set_donut, only: [:show, :edit, :update, :destroy]
 
   def index
-    @donuts = Donut.all
+    if params[:query]
+      @donuts = Donut.near(params[:query], 20)
+    else
+      @donuts = Donut.all
+    end
 
     @markers = @donuts.geocoded.map do |donut|
       {
