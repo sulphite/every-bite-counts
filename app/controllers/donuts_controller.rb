@@ -3,11 +3,23 @@ class DonutsController < ApplicationController
 
   def index
     @donuts = Donut.all
+
+    @markers = @donuts.geocoded.map do |donut|
+      {
+        lat: donut.latitude,
+        lng: donut.longitude
+      }
+    end
   end
 
   def show
     @booking = Booking.new
     @wholenessdata = [["uneaten", @donut.wholeness], ["eaten", 100 - @donut.wholeness]]
+
+    @markers = [{
+        lat: @donut.latitude,
+        lng: @donut.longitude
+      }]
   end
 
   def new
