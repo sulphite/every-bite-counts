@@ -7,7 +7,9 @@ class DonutsController < ApplicationController
     @markers = @donuts.geocoded.map do |donut|
       {
         lat: donut.latitude,
-        lng: donut.longitude
+        lng: donut.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {donut: donut}),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
