@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="index-map"
 export default class extends Controller {
@@ -18,6 +19,10 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+    //this is for the mapbox search
+    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //   mapboxgl: mapboxgl }))
   }
 
   #addMarkersToMap() {
