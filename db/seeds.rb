@@ -8,6 +8,7 @@
 
 number_of_donuts = 10
 number_of_users = 5
+address = ["London", "Bristol", "Derby", "Liverpool", "York", "Bath"]
 
 puts "removing all traces of donut"
 Donut.destroy_all
@@ -25,7 +26,7 @@ number_of_donuts.times do
   Donut.create(title: "#{Faker::Verb.past_participle} #{Faker::Food.dish}",
     description: "#{Faker::Food.description}",
     flavour: "#{Faker::Food.spice}",
-    location: "#{Faker::Address.city}",
+    location:  address.sample(),
     wholeness: rand(1..100),
     price: rand(1..5),
     user_id: user1.id)
@@ -37,7 +38,7 @@ number_of_donuts.times do
   Donut.create(title: "#{Faker::Verb.past_participle} #{Faker::Food.dish}",
     description: "#{Faker::Food.description}",
     flavour: "#{Faker::Food.spice}",
-    location: "#{Faker::Address.city}",
+    location:  address.sample(),
     wholeness: rand(1..100),
     price: rand(1..5),
     user_id: user2.id)
@@ -49,7 +50,7 @@ number_of_donuts.times do
   Donut.create(title: "#{Faker::Verb.past_participle} #{Faker::Food.dish}",
     description: "#{Faker::Food.description}",
     flavour: "#{Faker::Food.spice}",
-    location: "#{Faker::Address.city}",
+    location:  address.sample(),
     wholeness: rand(1..100),
     price: rand(1..5),
     user_id: user3.id)
@@ -61,7 +62,7 @@ number_of_donuts.times do
   Donut.create(title: "#{Faker::Verb.past_participle} #{Faker::Food.dish}",
     description: "#{Faker::Food.description}",
     flavour: "#{Faker::Food.spice}",
-    location: "#{Faker::Address.city}",
+    location:  address.sample(),
     wholeness: rand(1..100),
     price: rand(1..5),
     user_id: user4.id)
