@@ -1,9 +1,70 @@
-.donut-grid {
-  align-items: center;
-  margin-top: 30px;
-}
-
 .mydon-headers {
   padding: 30px;
-  width: 40%;
+  justify-content: space-between;
+  width: 75%;
 }
+
+.header-sect {
+  background-color: whitesmoke;
+  height: auto;
+}
+
+.review-sect {
+  background-color: whitesmoke;
+  height: 50px;
+}
+
+.this-user-reviews {
+  padding: 30px;
+  width: 50%;
+}
+
+.review-card {
+  padding: 10px;
+  background-color: white;
+  width: 75%;
+  border-radius: 8px;
+}
+
+.reviewer-info {
+  background-color: beige;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.review-content {
+  background-color: whitesmoke;
+  width: 400px;
+  border-radius: 8px;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+// .detail-cont {
+//   display: grid;
+//   grid-template-columns: 1fr, 1fr;
+//   grid-template-rows: calc(100vh-56px);
+// }
+
+
+// .rev-card-cont {
+//   padding: 20px;
+//   display: flex;
+// }
+
+// .rev-card {
+//   height: 300px;
+//   justify-content: center;
+// }
+
+// .rev-card-title {
+//   background-color: antiquewhite;
+//   justify-content: center;
+//   padding: 10px;
+// }
+
+// .rev-content {
+//   background-color: whitesmoke;
+//   padding: 20%;
+//   white-space: pre-line;
+// }
