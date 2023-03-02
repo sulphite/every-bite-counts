@@ -1,7 +1,7 @@
 <%= link_to donut_path(donut), class: "text-decoration-none" do %>
-<div class="py-2 px-4">
-<p class="mb-0"><%= donut.title %></p>
-<p class="text-muted mb-0"><%= donut.location %></p>
-<p class="text-muted mb-0">£<%= '%.2f' % donut.price %></p>
-</div>
+  <div class="py-2 px-4">
+    <p class="mb-0"><%= donut.title %></p>
+    <p class="text-muted mb-0"><%= donut.location %></p>
+    <p class="text-muted mb-0">£<%= '%.2f' % donut.price %></p>
+  </div>
 <% end %>
