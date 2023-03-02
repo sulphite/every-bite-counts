@@ -6,7 +6,7 @@
     <div class="show-title bg-light rounded p-4 d-flex flex-column">
       <h1 class=""><%= @donut.title %></h1>
       <%# todo: add user avatar here %>
-      <p><%= @donut.user.username %> - <span class="text-muted"><%= @donut.location %></span></p>
+      <p><%= link_to "#{@donut.user.username}", user_path(@donut.user_id) %> - <span class="text-muted"><%= @donut.location %></span></p>
       <p>Flavour: <span class="flavour rounded-pill p-2"><%= @donut.flavour %></span></p>
       <p class="flex-grow-1"><%= @donut.description %></p>
       <h3>£<%= '%.2f' % @donut.price %> per bite</h3>
