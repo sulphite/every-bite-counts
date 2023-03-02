@@ -2,7 +2,6 @@
   <div class="container py-4">
     <%= render "search" %>
     <div class="donut-grid mt-0">
-    </div>
       <% @donuts.shuffle.each do |donut| %>
       <div class="card rounded border-0 pt-4">
         <%= link_to donut_path(donut.id), class: "text-decoration-none d-flex flex-column align-items-center justify-content-center w-100" do %>
@@ -25,7 +24,7 @@
         </div>
       <% end %>
       </div>
-
+  </div>
   <div class="donut-map" data-controller="index-map"
   data-index-map-markers-value="<%= @markers.to_json %>"
   data-index-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
