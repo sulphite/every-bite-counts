@@ -2,7 +2,16 @@ class DonutsController < ApplicationController
   before_action :set_donut, only: [:show, :edit, :update, :destroy]
 
   def index
-    @donuts = Donut.all
+    if params[:query].present?
+      sql_query = <<~SQL
+        donuts.title @@ :query
+        OR donuts.location @@ :query
+        OR donuts.flavour @@ :query
+      SQL
+      @donuts = Donut.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @donuts = Donut.all
+    end
   end
 
   def show

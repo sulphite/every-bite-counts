@@ -1,3 +1,5 @@
+<%= render "search" %>
+
 <div class="container donut-grid mt-4">
   <% @donuts.shuffle.each do |donut| %>
    <div class="card rounded border-0 pt-4">
@@ -14,7 +16,7 @@
           <span class="text-muted"><%= donut.location %></span>
           <div class="d-flex justify-content-between">
             <span class="text-muted"><%= donut.user.username %></span>
-            <span class="fw-bold">£<%= '%.2f' % donut.price %></span>
+            <span class="fw-bold">£<%#= '%.2f' % donut.price %></span>
           </div>
         </div>
     <% end %>
