@@ -13,5 +13,6 @@ application.register("index-map", IndexMapController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
 import SearchController from "./search_controller"
 application.register("search", SearchController)

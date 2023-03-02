@@ -4,17 +4,20 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    test: String
   }
 
   connect() {
-    console.log("hello from map controller")
+    console.log("hello from gvhbnklknjbhvg controller")
+    console.log(this.testValue)
     mapboxgl.accessToken = this.apiKeyValue
-
+    console.log(this.markersValue)
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
-      zoom: 15
+      zoom: 15,
+      center: this.markersValue[0]
     })
 
     this.#addMarkersToMap()
