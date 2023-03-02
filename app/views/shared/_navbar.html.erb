@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid">
-    <%= link_to donuts_path, class: "navbar-brand text-primary" do %>
+    <%= link_to root_path, class: "navbar-brand text-primary" do %>
       <%= icon('fa-solid', 'stroopwafel', class:"fa-5x, fa-spin") %>
       <span>Every Bite Counts</span>
     <% end %>
@@ -15,9 +15,6 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item">
             <%= link_to "New Donut", new_donut_path, class: "nav-link" %>
           </li>
