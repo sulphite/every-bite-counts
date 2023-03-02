@@ -1,3 +1,8 @@
+.donut-map {
+  width: 100%;
+  height: 100%;
+}
+
 
 .donut-grid {
   display: grid;
@@ -28,18 +33,25 @@
 @media (min-width: 768px) {
   .donut-grid {
   grid-template-columns: repeat(2, 282px);
+  overflow-y: scroll;
+  }
+
+  .biggrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: calc(100vh - 56px);
   }
 }
 
-@media (min-width: 1024px) {
-  .donut-grid {
-  grid-template-columns: repeat(3, 282px);
-  }
-}
+// @media (min-width: 1024px) {
+//   .donut-grid {
+//   grid-template-columns: repeat(3, 282px);
+//   }
+// }
 
 
-@media (min-width: 1440px) {
-  .donut-grid {
-  grid-template-columns: repeat(4, 282px);
-  }
-}
+// @media (min-width: 1440px) {
+//   .donut-grid {
+//   grid-template-columns: repeat(4, 282px);
+//   }
+// }

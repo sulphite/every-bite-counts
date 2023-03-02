@@ -12,11 +12,26 @@ class DonutsController < ApplicationController
     else
       @donuts = Donut.all
     end
-  end
+
+    @markers = @donuts.geocoded.map do |donut|
+      {
+        lat: donut.latitude,
+        lng: donut.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {donut: donut}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
+
+   end
 
   def show
     @booking = Booking.new
     @wholenessdata = [["uneaten", @donut.wholeness], ["eaten", 100 - @donut.wholeness]]
+
+    @markers = [{
+        lat: @donut.latitude,
+        lng: @donut.longitude
+      }]
   end
 
   def new
