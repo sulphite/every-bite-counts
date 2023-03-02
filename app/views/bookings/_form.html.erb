@@ -1,5 +1,5 @@
 <%= simple_form_for [@donut, @booking] do |f| %>
   <%= f.input :time_from, as: :time %>
   <%= f.input :time_to, as: :time %>
-  <%= f.submit %>
+  <%= f.submit "Book now!", class: 'btn btn-primary rounded-pill' %>
 <% end %>

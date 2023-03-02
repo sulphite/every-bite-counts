@@ -1,6 +1,6 @@
 
 <div class="container p-4 w-75">
-  <%= link_to 'Back to Results', donuts_path, class: "btn btn-primary rounded-pill" %>
+  <%= link_to 'Back to Results', donuts_path, class: "btn btn-outline-primary rounded-pill" %>
   <div class="show-grid my-3">
 
     <div class="show-title bg-light rounded p-4 d-flex flex-column">
@@ -9,6 +9,7 @@
       <p><%= @donut.user.username %> - <span class="text-muted"><%= @donut.location %></span></p>
       <p>Flavour: <span class="flavour rounded-pill p-2"><%= @donut.flavour %></span></p>
       <p class="flex-grow-1"><%= @donut.description %></p>
+      <h3>£<%= '%.2f' % @donut.price %> per bite</h3>
       <% if current_user == @donut.user %>
       <div class="mt-4">
         <%= link_to "Edit this listing", edit_donut_path, class: "btn btn-info rounded-pill" %>
@@ -34,15 +35,14 @@
       <%= pie_chart @wholenessdata, colors: ["#E8998D","rgba(0, 0, 0, 0.05)"], donut: true %>
     </div>
 
-      <div class="show-booking">
+      <div class="show-booking bg-light rounded d-flex flex-column">
       <% if user_signed_in?  %>
         <div class="form-control p-4 bg-light border-0">
           <h5>Book this donut</h5>
-          <p>Price: £<%= @donut.price %></p>
           <%= render 'bookings/form', booking: @booking, donut: @donut %>
         </div>
       <% else %>
-        <%= link_to 'Please Sign in to book', new_user_session_path, class: "btn btn-primary rounded-pill" %>
+        <%= link_to 'Please Sign in to book', new_user_session_path, class: "btn btn-primary rounded-pill align-self-center mx-auto my-auto" %>
       <% end %>
       </div>
 

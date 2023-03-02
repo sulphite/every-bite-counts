@@ -1,5 +1,8 @@
-<%= simple_form_for(@user) do |f| %>
-  <%= f.input :mouth_size %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div class="simple_form--container">
+<h2>Hi <%= current_user.username %> !</h2>
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.input :mouth_size %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Save Details", class: "btn btn-primary rounded-pill mt-2 mx-auto" %>
+  <% end %>
+</div>
