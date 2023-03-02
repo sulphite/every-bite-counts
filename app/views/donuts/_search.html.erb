@@ -1,5 +1,5 @@
 
-<%= form_with url: donuts_path, method: :get, class: "d-flex mt-5 container w-25", data: { controller: "search" } do |f| %>
-  <%= f.text_field :query, id: "search-input", placeholder: "Find a donut!", class: "form-control", data: { target: "search.input" } %>
-  <%= f.submit "Search", class: "btn btn-primary", data: { action: "click->search#submit" } %>
+<%= form_with url: donuts_path, method: :get, class: "d-flex mb-4", data: { controller: "search" } do |f| %>
+  <%= f.text_field :query, id: "search-input", placeholder: "Find a donut!", class: "form-control rounded-pill bg-white", data: { target: "search.input" } %>
+  <%= f.submit "Search", class: "btn btn-primary rounded-pill", data: { action: "click->search#submit" } %>
 <% end %>

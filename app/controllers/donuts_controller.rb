@@ -20,6 +20,7 @@ class DonutsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {donut: donut}),
         marker_html: render_to_string(partial: "marker")
       }
+    end
   end
 
   def show
