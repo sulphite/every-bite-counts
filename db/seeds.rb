@@ -25,7 +25,7 @@ user1 = User.create(email: "janagerrard@gmail.com", password: "password", userna
 number_of_donuts.times do
   Donut.create(title: "#{Faker::Verb.past_participle} #{Faker::Food.dish}",
     description: "#{Faker::Food.description}",
-    flavour: "#{Faker::Food.spice}",
+    flavour: "#{Faker::Dessert.flavor}",
     location:  address.sample(),
     wholeness: rand(1..100),
     price: rand(1..5),
@@ -37,7 +37,7 @@ user2 = User.create(email: "joelsavage@gmail.com", password: "password", usernam
 number_of_donuts.times do
   Donut.create(title: "#{Faker::Verb.past_participle} #{Faker::Food.dish}",
     description: "#{Faker::Food.description}",
-    flavour: "#{Faker::Food.spice}",
+    flavour: "#{Faker::Dessert.flavor}",
     location:  address.sample(),
     wholeness: rand(1..100),
     price: rand(1..5),
@@ -49,7 +49,7 @@ user3 = User.create(email: "nickodon@gmail.com", password: "password", username:
 number_of_donuts.times do
   Donut.create(title: "#{Faker::Verb.past_participle} #{Faker::Food.dish}",
     description: "#{Faker::Food.description}",
-    flavour: "#{Faker::Food.spice}",
+    flavour: "#{Faker::Dessert.flavor}",
     location:  address.sample(),
     wholeness: rand(1..100),
     price: rand(1..5),
@@ -61,7 +61,7 @@ user4 = User.create(email: "nikstojkov@gmail.com", password: "password", usernam
 number_of_donuts.times do
   Donut.create(title: "#{Faker::Verb.past_participle} #{Faker::Food.dish}",
     description: "#{Faker::Food.description}",
-    flavour: "#{Faker::Food.spice}",
+    flavour: "#{Faker::Dessert.flavor}",
     location:  address.sample(),
     wholeness: rand(1..100),
     price: rand(1..5),
