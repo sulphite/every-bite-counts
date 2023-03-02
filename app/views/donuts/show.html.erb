@@ -37,10 +37,18 @@
 
       <div class="show-booking bg-light rounded d-flex flex-column">
       <% if user_signed_in?  %>
-        <div class="form-control p-4 bg-light border-0">
-          <h5>Book this donut</h5>
+        <% if current_user == @donut.user %>
+        <!-- IF SIGNED IN USER IS DONUT OWNER -->
+          <div>
+            <h5>This is your donut</h5>
+          </div>
+        <% else %>
+        <!-- IF SIGNED IN USER IS DONUT OWNER -->
+          <div class="form-control p-4 bg-light border-0">
+            <h5>Book this donut</h5>
           <%= render 'bookings/form', booking: @booking, donut: @donut %>
         </div>
+        <% end %>
       <% else %>
         <%= link_to 'Please Sign in to book', new_user_session_path, class: "btn btn-primary rounded-pill align-self-center mx-auto my-auto" %>
       <% end %>
