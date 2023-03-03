@@ -7,6 +7,7 @@
 .donut-grid {
   display: grid;
   grid-template-columns: repeat(1, 282px);
+  grid-auto-rows: min-content;
   gap: 1.5em;
   justify-content: center;
 
