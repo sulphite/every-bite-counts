@@ -1,13 +1,15 @@
 <div class="user-show-container w-100">
 
   <div class="mydon-headers d-flex">
-    <div class="header-sect shadow-sm rounded p-2">
-      <h2><%= @user.username %>'s Donuts</h2>
-      <% if @user == current_user %>
-        <h3>You have <%= current_user.donuts.count %> Donut(s)</h3>
-      <% else %>
-        <h3>They have <%= @user.donuts.count %> Donut(s)</h3>
-      <% end %>
+    <div class="header-sect text-end shadow-sm rounded p-2">
+      <div class="">
+        <% if @user.photo.key %>
+          <%= cl_image_tag @user.photo.key, crop: :fill, class: "d-inline rounded-circle",  width: 70, height: 70, crop: :fill, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= image_tag "https://img.freepik.com/free-vector/vector-colorful-icon-pink-doughnut-isolated-white-background_134830-1096.jpg?w=1060&t=st=1677833558~exp=1677834158~hmac=e92e3969d29d49c3ac3627eed32994243e8ddf49094625080cb8066281979800", class: "d-inline rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, width: 70, height: 70, crop: :fill %>
+        <% end %>
+        <h3 class="d-inline"><%= @user.username %>'s Donuts, <%= @user == current_user ? "You have #{current_user.donuts.count}" : "They have #{@user.donuts.count}" %> Donut(s)</h3>
+      </div>
     </div>
 
     <div class="review-sect rounded shadow-sm p-2">
@@ -21,7 +23,7 @@
 
     <div class="detail-cont d-flex">
       <div class="container card-cont w-50">
-        <div class="container donut-grid">
+        <div style="max-height: 500px !important;" class="container donut-grid">
           <% @donuts.shuffle.each do |donut| %>
           <div class="card rounded border-0 pt-4">
             <%= link_to donut_path(donut.id), class: "text-decoration-none d-flex flex-column align-items-center justify-content-center w-100" do %>
@@ -43,33 +45,44 @@
       </div>
 
       <br>
+
       <%# reviews section %>
       <div class="this-user-reviews">
-        <% @reviews.each do |review| %>
-          <% if @user == review.booking.donut.user %>
-            <div class="d-flex review-card">
-              <div class="reviewer-info">
-                <% if review.booking.user.photo.key %>
-                <%# user avatar %>
-                  <%= cl_image_tag review.booking.user.photo.key, width: 50, class: "rounded-circle" %>
-                <% else %>
-                <%# placeholder image %>
-                  <%=  image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <% end %>
-                <h5 class=""><%= review.booking.user.username %></h5>
-                <p class="">Rating: <%= review.rating %></p>
+        <% if @reviews.empty? %>
+          <div class="warn-cont">
+            <h3 class="review-warn rounded"><span class="warn-text rounded"><%= current_user == @user ? "You Have No Reviews" : "This User Has No Reviews" %></span></h3>
+          </div>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <% if @user == review.booking.donut.user %>
+              <div class="d-flex review-card rounded">
+                <div class="reviewer-info rounded d-flex flex-column">
+                  <% if review.booking.user.photo.key %>
+                  <%# user avatar %>
+                    <%= cl_image_tag review.booking.user.photo.key, width: 40, height: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <% else %>
+                  <%# placeholder image %>
+                    <%=  image_tag "https://img.freepik.com/free-vector/vector-colorful-icon-pink-doughnut-isolated-white-background_134830-1096.jpg?w=1060&t=st=1677833558~exp=1677834158~hmac=e92e3969d29d49c3ac3627eed32994243e8ddf49094625080cb8066281979800", class: "avatar dropdown-toggle w-10 h-10", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, width: 50, height: 40 %>
+                  <% end %>
+                  <br>
+                  <br>
+                  <h5 class=""><%= review.booking.user.username %></h5>
+                </div>
+                <div class="review-content rounded">
+                  <div class="d-flex w-100 justify-content-between">
+                    <p class="rating-p w-50 rounded-pill m-0 p-2">Rating: <%= Array.new(review.rating) { "🍩" }.join() %></p>
+                    <% if current_user == review.booking.user %>
+                      <%= link_to 'Edit Review', new_booking_review_path(review.booking), class: "btn btn-primary rounded-pill edit-button" %>
+                    <% end %>
+                  </div>
+                  <p><%= review.content %></p>
+                  <%# ability to edit if own review %>
+                </div>
               </div>
-              <div class="review-content">
-                <p><%= review.content %></p>
-                <%# ability to edit if own review %>
-                <% if current_user == review.booking.user %>
-                  <%= link_to 'Edit Review', new_booking_review_path(review.booking), class: "btn btn-primary" %>
-                <% end %>
-              </div>
-            </div>
-            <br>
+              <br>
             <% end %>
           <% end %>
+        <% end %>
       </div>
     </div>
 </div>
