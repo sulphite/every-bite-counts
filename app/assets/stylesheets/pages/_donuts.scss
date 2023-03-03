@@ -43,6 +43,7 @@
 //   grid-template-columns: repeat(3, 282px);
 //   }
   .biggrid {
+    margin-top: -16px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: calc(100vh - 56px);

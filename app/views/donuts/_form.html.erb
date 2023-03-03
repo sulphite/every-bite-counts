@@ -1,12 +1,13 @@
 <div class="simple_form--container">
 <%= simple_form_for(@donut) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :flavour %>
-  <%= f.input :location %>
-  <%= f.input :wholeness %>
-  <%= f.input :description %>
-  <%= f.input :price %>
+  <%= f.input :title, placeholder: 'Name your donut' %>
+  <%= f.input :flavour, placeholder: 'e.g. "Strawberry"' %>
+  <%= f.input :location, placeholder: 'Where is your donut?' %>
+  <%= f.input :wholeness, placeholder: 'How much is left? (%)', input_html: { max: '100', step: '5' } %>
+  <%= f.input :description, placeholder: 'Describe your donut' %>
+  <%= f.input :price, placeholder: 'How much for the whole donut? (£)' %>
   <%= f.input :photo, as: :file %>
   <%= f.submit "List my donut", class: 'btn btn-primary rounded-pill mt-2' %>
 <% end %>
 </div>
+
