@@ -1,29 +1,31 @@
 .mydon-headers {
   padding: 30px;
   justify-content: space-between;
-  width: 75%;
+  width: 80%;
 }
 
 .header-sect {
-  background-color: whitesmoke;
+  background-color: beige;
   height: auto;
 }
 
 .review-sect {
-  background-color: whitesmoke;
+  background-color: beige;
   height: 50px;
 }
 
 .this-user-reviews {
   padding: 30px;
   width: 50%;
+  overflow-y: scroll;
+  max-height: 500px;
 }
 
 .review-card {
   padding: 10px;
   background-color: white;
   width: 75%;
-  border-radius: 8px;
+  // border-radius: 8px;
 }
 
 .reviewer-info {
@@ -39,6 +41,25 @@
   padding: 10px;
   margin-left: 10px;
 }
+
+.rating-p {
+  background-color: $pink;
+}
+
+
+.warn-cont {
+  width: 100%;
+}
+
+.review-warn {
+  text-align: center;
+}
+
+.warn-text {
+  background-color: beige;
+  padding: 10px;
+}
+
 
 // .detail-cont {
 //   display: grid;

@@ -7,9 +7,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @donuts = @user.donuts
     @bookings = @user.bookings
-    @reviews = Review.all
+    @all_reviews = Review.all
+    @reviews = @all_reviews.select { |review| @user == review.booking.donut.user }
     # raise
   end
+
 
   def update
     @user = User.find(params[:id])
