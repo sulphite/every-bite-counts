@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .banner {
-  height: calc(100vh - 56px);
+  height: calc(100vh - 60px);
   width: 100%;
   // background-image: ;
   // background-repeat: repeat;
@@ -11,6 +11,7 @@
 
   padding: 150px 0;
   overflow: hidden;
+  margin-top: -16px;
 }
 
 .form-control {
