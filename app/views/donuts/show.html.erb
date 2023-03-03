@@ -19,7 +19,12 @@
       </div>
       <p>Flavour: <span class="flavour rounded-pill p-2"><%= @donut.flavour %></span></p>
       <p class="flex-grow-1"><%= @donut.description %></p>
-      <h3>£<%= '%.2f' % @donut.price %> per bite</h3>
+      <% if @donut.wholeness == 100 %>
+        <h3>Yours for: £<%= '%.2f' % @donut.price %></h3>
+      <% else %>
+        <p class="text-decoration-line-through opacity-50">£<%= '%.2f' %  (@donut.price * 100 / @donut.wholeness) %></p>
+        <h3>Yours for: £<%= '%.2f' % (@donut.price) %></h3>
+      <% end %>
       <% if current_user == @donut.user %>
 
     <% end %>
