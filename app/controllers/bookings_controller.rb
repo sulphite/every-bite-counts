@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @donut = Donut.find(params[:donut_id])
     @booking.user = current_user
     @booking.donut = @donut
-    if @booking.time_from.hour < @booking.time_to.hour
+    if @booking.time_from < @booking.time_to
       if @booking.save
         redirect_to bookings_path
       else
