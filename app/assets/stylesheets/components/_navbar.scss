@@ -12,15 +12,32 @@
 }
 
 .navbar-wavy {
+
+}
+
+.navbar-wavy::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 75px;
+  background-color: #fff;
+
+
   --size: 10px;
   --p: 5px;
   --R: 11.3px;
 
-  height: 75px;
+
+  // height: 75px;
+
 
   -webkit-mask:
     radial-gradient(var(--R) at 50% calc(100% - (var(--size) + var(--p))),blue 99%,#0000 101%) calc(50% - 2*var(--size)) 0/calc(4*var(--size)) 100%,
     radial-gradient(var(--R) at 50% calc(100% + var(--p)),#0000 99%,red 101%) 50% calc(100% - var(--size))/calc(4*var(--size)) 100% repeat-x;
-  background:white;
-  border: none;
+
+    border: none;
+
 }
