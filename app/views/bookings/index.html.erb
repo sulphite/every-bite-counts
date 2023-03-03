@@ -16,8 +16,9 @@
         <div class="booking-image" style="background-image: url(<%= image_path 'https://www.errenskitchen.com/wp-content/uploads/2020/01/Baked-Vanilla-Donuts-1-4.jpg' %>)"></div>
       <% end %>
       <div class="d-flex flex-column align-items-start pt-3 w-100">
-        <h5 class="card-title"><%= booking.donut.title %> <span class="badge bg-secondary rounded-pill">New</span></h5>
-        <p class="card-subtitle text-muted"><%= booking.donut.user.username %></p>
+      <span class="badge bg-secondary rounded-pill">New</span>
+        <h5 class="card-title"><%= booking.donut.title %></h5>
+        <p class="card-subtitle text-muted"><%= link_to "#{booking.donut.user.username}", user_path(booking.donut.user) %></p>
         <div class="py-2">
           <p class="card-text text-primary">Time From: <%= booking.time_from.hour %>:<%= booking.time_from.min %>
           <br>
