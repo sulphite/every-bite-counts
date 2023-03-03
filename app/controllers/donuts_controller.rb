@@ -9,6 +9,8 @@ class DonutsController < ApplicationController
         OR donuts.flavour @@ :query
       SQL
       @donuts = Donut.where(sql_query, query: "%#{params[:query]}%")
+    elsif params[:locationsearch].present?
+      @donuts = Donut.near(params[:locationsearch], 20)
     else
       @donuts = Donut.all
     end
