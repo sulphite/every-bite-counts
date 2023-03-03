@@ -7,7 +7,7 @@
 
   <div class="booking-grid">
 
-    <% @bookings.each do |booking| %>
+    <% @bookings.reverse.each do |booking| %>
       <div class="card rounded border-0 p-3 d-flex flex-column align-items-center justify-content-center">
       <% if booking.donut.photo.key %>
         <%= cl_image_tag booking.donut.photo.key, height: 250, width: 250, crop: :fill, class: "booking-image" %>
