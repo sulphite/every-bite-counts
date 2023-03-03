@@ -16,6 +16,7 @@
         <div class="booking-image" style="background-image: url(<%= image_path 'https://www.errenskitchen.com/wp-content/uploads/2020/01/Baked-Vanilla-Donuts-1-4.jpg' %>)"></div>
       <% end %>
       <div class="d-flex flex-column align-items-start pt-3 w-100">
+
         <h5 class="card-title"><%= booking.donut.title %>
         <% unless (Time.now.hour + Time.now.min) > (booking.time_to.hour + booking.time_to.min - 1) %>
           <span class="badge bg-secondary rounded-pill">New</span>
