@@ -7,8 +7,10 @@
 
   <div class="booking-grid">
 
+
     <% @bookings.reverse.each do |booking| %>
-      <div class="card rounded border-0 p-3 d-flex flex-column align-items-center justify-content-center">
+      <div class="card rounded border-0 p-3 d-flex flex-column align-items-center">
+
       <% if booking.donut.photo.key %>
         <%= cl_image_tag booking.donut.photo.key, height: 250, width: 250, crop: :fill, class: "booking-image" %>
       <% else %>
@@ -16,13 +18,13 @@
         <div class="booking-image" style="background-image: url(<%= image_path 'https://www.errenskitchen.com/wp-content/uploads/2020/01/Baked-Vanilla-Donuts-1-4.jpg' %>)"></div>
       <% end %>
       <div class="d-flex flex-column align-items-start pt-3 w-100">
-
-        <h5 class="card-title"><%= booking.donut.title %>
-        <% unless (Time.now.hour + Time.now.min) > (booking.time_to.hour + booking.time_to.min - 1) %>
-          <span class="badge bg-secondary rounded-pill">New</span>
-        <% end %>
-        </h5>
-        <p class="card-subtitle text-muted"><%= booking.donut.user.username %></p>
+        <div class="d-flex flex-row justify-content-between align-items-start w-100">
+          <h5 class="card-title"><%= booking.donut.title %></h5>
+          <% unless (Time.now.hour + Time.now.min) > (booking.time_to.hour + booking.time_to.min - 1) %>
+            <span class="badge bg-secondary rounded-pill">New</span>
+          <% end %>
+        </div>
+        <p class="card-subtitle text-muted"><%= link_to "#{booking.donut.user.username}", user_path(booking.donut.user) %></p>
         <div class="py-2">
           <p class="card-text text-primary">Time From: <%= booking.time_from.hour %>:<%= booking.time_from.min %>
           <br>
