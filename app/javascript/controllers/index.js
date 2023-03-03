@@ -7,9 +7,11 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-
 import IndexMapController from "./index_map_controller"
 application.register("index-map", IndexMapController)
+
+import LocationAutocompleteController from "./location_autocomplete_controller"
+application.register("location-autocomplete", LocationAutocompleteController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)

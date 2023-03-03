@@ -2,6 +2,7 @@ class DonutsController < ApplicationController
   before_action :set_donut, only: [:show, :edit, :update, :destroy]
 
   def index
+
     if params[:query].present?
       sql_query = <<~SQL
         donuts.title @@ :query
