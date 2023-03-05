@@ -19,8 +19,10 @@
         <%= link_to "#{@donut.user.username}", user_path(@donut.user_id) %> -
         <span class="text-muted"><%= @donut.location %></span>
       </div>
+      
       <p>Flavour: <span class="flavour rounded-pill p-2"><%= @donut.flavour %></span></p>
       <p class="flex-grow-1"><%= @donut.description %></p>
+
       <% if @donut.wholeness == 100 %>
         <h3>Yours for: £<%= '%.2f' % @donut.price %></h3>
       <% else %>
