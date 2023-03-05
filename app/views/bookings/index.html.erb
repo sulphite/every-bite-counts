@@ -31,11 +31,11 @@
            Time Till: <%= booking.time_to.strftime("%k:%M")%></p>
         </div>
         <% if Time.now.strftime("%k:%M") > booking.time_to.strftime("%k:%M") %>
+
           <%= link_to "Write a review", new_booking_review_path(booking), class: "btn btn-primary rounded-pill align-self-center" %>
-        <% end %>
+        <%# <% end %>
       </div>
 
-        <%# TODO ADD REVIEW TO USER FROM BOOKING %>
       </div>
     <% end %>
     </div>
