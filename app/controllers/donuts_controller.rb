@@ -43,7 +43,6 @@ class DonutsController < ApplicationController
   def create
     @donut = Donut.new(donut_params)
     @donut.user = current_user
-    @donut.price = (@donut.price / 100 * @donut.wholeness)
     if @donut.save
       redirect_to donut_path(@donut)
     else
@@ -65,6 +64,10 @@ class DonutsController < ApplicationController
   end
 
   private
+
+  # def set_price
+  #   @donut.price = (@donut.price / 100 * @donut.wholeness)
+  # end
 
   def set_donut
     @donut = Donut.find(params[:id])
