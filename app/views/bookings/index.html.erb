@@ -20,17 +20,17 @@
       <div class="d-flex flex-column align-items-start pt-3 w-100">
         <div class="d-flex flex-row justify-content-between align-items-start w-100">
           <h5 class="card-title"><%= booking.donut.title %></h5>
-          <% unless (Time.now.hour + Time.now.min) > (booking.time_to.hour + booking.time_to.min - 1) %>
+          <% if Time.now.strftime("%k:%M") < booking.time_to.strftime("%k:%M") %>
             <span class="badge bg-secondary rounded-pill">New</span>
           <% end %>
         </div>
         <p class="card-subtitle text-muted"><%= link_to "#{booking.donut.user.username}", user_path(booking.donut.user) %></p>
         <div class="py-2">
-          <p class="card-text text-primary">Time From: <%= booking.time_from.hour %>:<%= booking.time_from.min %>
+          <p class="card-text text-primary">Time From: <%= booking.time_from.strftime("%k:%M") %>
           <br>
-           Time Till: <%= booking.time_to.hour %>:<%= booking.time_to.min %></p>
+           Time Till: <%= booking.time_to.strftime("%k:%M")%></p>
         </div>
-        <% if (Time.now.hour + Time.now.min) > (booking.time_to.hour + booking.time_to.min - 1) %>
+        <% if Time.now.strftime("%k:%M") > booking.time_to.strftime("%k:%M") %>
           <%= link_to "Write a review", new_booking_review_path(booking), class: "btn btn-primary rounded-pill align-self-center" %>
         <% end %>
       </div>

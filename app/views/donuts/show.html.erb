@@ -25,8 +25,9 @@
         <h3>Yours for: £<%= '%.2f' % @donut.price %></h3>
       <% else %>
 
-        <h3>Yours for: <span class="text-decoration-line-through text-muted fs-5">£<%= '%.2f' %  (@donut.price * 100 / @donut.wholeness) %></span>
-         £<%= '%.2f' % (@donut.price) %></h3>
+        <h3>Yours for: <span class="text-decoration-line-through text-muted fs-5">
+          £<%= '%.2f' % @donut.price %></span>
+         £<%= '%.2f' % (@donut.price / 100 * @donut.wholeness)  %></h3>
       <% end %>
       <% if current_user == @donut.user %>
 
